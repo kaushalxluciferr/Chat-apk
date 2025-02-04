@@ -28,7 +28,7 @@ app.use(cors({
 app.use('/api/auth',authRouter)
 app.use("/api/message",messageRouter)
 
-server.get("/",(req,res)=>{
+app.get("/",(req,res)=>{
     res.send("hey")
 })
 
