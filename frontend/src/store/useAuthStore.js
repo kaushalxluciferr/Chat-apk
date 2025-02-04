@@ -14,7 +14,7 @@ export const useAuthStore=create((set,get)=>({
 
     checkAuth:async()=>{
         try{
-const response=await axiosInstance.get("/auth/check")
+const response=await axiosInstance.get("/api/auth/check")
 set({authUser:response.data})
 get().connectSocket()
         }catch(error)
@@ -29,7 +29,7 @@ set({authUser:null})
     signup:async (data)=>{
         set({isSigninUp:true})
         try{
-const response=await axiosInstance.post('/auth/signup',data)
+const response=await axiosInstance.post('/api/auth/signup',data)
 // console.log(response);
 
 set({authUser:response.data})
@@ -46,7 +46,7 @@ toast.success("user Created successfully")
 ,
     logout:async ()=>{
       try{
-const response=await axiosInstance.post('/auth/logout')
+const response=await axiosInstance.post('/api/auth/logout')
 set({authUser:null})
 get().disconnectSocket()
 toast.success("logout Successfully")
@@ -59,7 +59,7 @@ toast.success("logout Successfully")
     login:async(data)=>{
         set({isLogin:true})
         try{
-            const response=await axiosInstance.post('/auth/login',data)
+            const response=await axiosInstance.post('/api/auth/login',data)
             set({authUser:response.data})
             toast.success("login successfully")
             get().connectSocket()
@@ -76,7 +76,7 @@ toast.success("logout Successfully")
     profileUpdate:async(item)=>{
         set({isUpdatingProfile:true})
         try{
-            const response=await axiosInstance.post('/auth/update-profile',item)
+            const response=await axiosInstance.post('/api/auth/update-profile',item)
             set({authUser:response.data})
             toast.success("updated successfully")
         }catch(error)

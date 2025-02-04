@@ -1,7 +1,6 @@
 import { create } from "zustand";
 import { axiosInstance } from "../lib/axios";
 import { toast } from "react-toastify";
-import { Socket } from "socket.io-client";
 import { useAuthStore } from "./useAuthStore";
 
 
@@ -18,7 +17,7 @@ export const useChatStore=create((set,get)=>({
      getUsers:async()=>{
         set({isUserLoading:true})
         try{
-            const response=await axiosInstance.get('/message/users')
+            const response=await axiosInstance.get('/api/message/users')
             set({users:response.data.user})
         }catch(error)
         {
@@ -32,7 +31,7 @@ export const useChatStore=create((set,get)=>({
      getMessages:async(id)=>{
         set({isUserLoading:true})
         try{
-            const response=await axiosInstance.get(`/message/${id}`)
+            const response=await axiosInstance.get(`/api/message/${id}`)
             set({messages:response.data.message})
         }catch(error)
         {
@@ -52,7 +51,7 @@ export const useChatStore=create((set,get)=>({
      sendMessage:async(data)=>{
      const {selectedUser,message}=get()   //selected user from up is not here so we are using get to import 
      try{
-const response=await axiosInstance.post(`/message/send/${selectedUser._id}`,data)
+const response=await axiosInstance.post(`/api/message/send/${selectedUser._id}`,data)
 set({message:[...message,response.data]})
      }catch(error)
      {
