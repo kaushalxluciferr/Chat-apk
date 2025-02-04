@@ -28,6 +28,10 @@ app.use(cors({
 app.use('/api/auth',authRouter)
 app.use("/api/message",messageRouter)
 
+server.get("/",(req,res)=>{
+    res.send("hey")
+})
+
 server.listen(process.env.PORT,()=>{
     console.log("love you from server");
     
