@@ -2,7 +2,7 @@ import {create} from 'zustand'
 import { axiosInstance } from '../lib/axios.js'
 import { toast } from 'react-toastify'
 import {io} from 'socket.io-client'
-const backendUrl='http://localhost:4000'
+const backendUrl='https://chatapp-backend-sandy.vercel.app'
 export const useAuthStore=create((set,get)=>({
     authUser:null,
     isSigninUp:false,
