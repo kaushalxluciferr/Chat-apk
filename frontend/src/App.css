@@ -1,0 +1,18 @@
+.container{
+    position: relative;
+    margin-bottom: 50px;
+    min-width: 400px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+ .container .element{
+position: relative;
+width: 30px;
+height: 30px;
+background-color: rgb(188,255,188);
+scale: 0.75;
+}
