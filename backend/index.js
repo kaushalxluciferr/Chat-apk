@@ -20,7 +20,7 @@ app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(cors({
-    origin: 'https://chat-apk-rho.vercel.app/', // Replace with your frontend's origin
+    origin: 'https://chat-apk-rho.vercel.app', // Replace with your frontend's origin
     credentials: true
 }));
 
